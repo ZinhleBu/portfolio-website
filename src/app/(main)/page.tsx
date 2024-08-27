@@ -7,9 +7,10 @@ import { ArrowRightIcon } from "lucide-react";
 import Image from "next/image";
 import heroImageLeft from "@/assets/1.jpg";
 import heroImageRight from "@/assets/2.jpg";
-import {designServices} from "../../lib/data";
+import { designServices } from "../../lib/data";
 import WorkBanner from "./WorkBanner";
 import Link from "next/link";
+import { JobExperienceList } from "./JobExperienceList";
 export default function Home() {
   return (
     <main className="flex w-full min-w-0 gap-5">
@@ -28,7 +29,7 @@ export default function Home() {
               className="text-white text-sm font-normal bg-blue-600 rounded-3xl px-5 py-5"
             >
               <Link href="/contact" className="flex">
-              Let&apos;s Talk
+                Let&apos;s Talk
                 <ArrowRightIcon size={16} className="ms-2" />
               </Link>
             </Button>
@@ -113,6 +114,37 @@ export default function Home() {
         </div>
         <div className="flex flex-col gap-5 mt-4 pt-4">
           <WorkBanner />
+        </div>
+        <div className="flex flex-col m-auto items-center justify-center gap-5 pt-9">
+          <H1 className=" text-5xl md:text-6xl  font-medium text-center max-w-[64rem]">
+            <span>My Work</span>{" "}
+            <span className="text-gray-400">Experience</span>{" "}
+          </H1>
+          <p className="font-light text-center">
+            Unveiling My Work Experience. A Comprehensive Exploration of My
+            Software Journey and Professional Evolution
+          </p>
+          <JobExperienceList />
+          <div className="flex flex-col md:flex-row m-auto justify-between w-full gap-5 pt-9">
+            <H1 className=" text-5xl md:text-6xl  font-medium text-left max-w-[64rem]">
+              <span>Latest <br/></span>
+              <span className="text-gray-400">Blog Posts</span>{" "}
+            </H1>
+            <div className="flex flex-col gap-5 mt-4 pt-4">
+              <p className="font-light text-start max-w-[500px]">
+                Fresh Insights, Dive into My Latest Blog Posts and Insights for Innovative Ideas and Inspiration.
+              </p>
+              <Button
+                variant="default"
+                className="text-white text-sm font-normal max-w-[150px] bg-blue-600 rounded-3xl px-5 py-5"
+              >
+                <Link href="/contact" className="flex">
+                  See More
+                  <ArrowRightIcon size={16} className="ms-2" />
+                </Link>
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </main>

@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import MenuBar from "./MenuBar";
 import Navbar from "./Navbar";
 import SessionProvider from "./SessionProvider";
+import Footer from "@/components/Footer";
 
 export default async function Layout({
   children,
@@ -11,7 +12,9 @@ export default async function Layout({
 }) {
   const session = await validateRequest();
 
-  if (!session.user) redirect("/login");
+  if (!session.user) {
+    return null
+  };
 
   return (
     <SessionProvider value={session}>
@@ -23,6 +26,7 @@ export default async function Layout({
         </div>
         <MenuBar className="sticky bottom-0 flex w-full justify-center gap-5 border-t bg-card p-3 sm:hidden" />
       </div>
+      <Footer/>
     </SessionProvider>
   );
 }
