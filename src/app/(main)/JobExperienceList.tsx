@@ -4,33 +4,27 @@ import { ArrowRight } from "lucide-react";
 import React, { useState } from "react";
 
 export const JobExperienceList = () => {
-  const [activeJobId, setActiveJobId] = useState(null);
+  const [activeJobId, setActiveJobId] = useState<number | null>(null);
 
   const jobExperiences = [
     {
       id: 1,
-      company: "Creative Minds",
-      location: "New York",
-      period: "February 2022 - Present",
+      company: "Mondia Digital",
+      location: "Johannesburg",
+      period: "May 2022 - Present",
     },
     {
       id: 2,
-      company: "Innovative Designs Inc",
-      location: "USA",
-      period: "January 2020 - February 2022",
+      company: "The Gryphon Lounge",
+      location: "Johannesburg",
+      period: "March 2020 - May 2022",
     },
     {
       id: 3,
-      company: "Visionary Ltd",
-      location: "London, UK",
-      period: "January 2020 - September 2021",
-    },
-    {
-      id: 4,
-      company: "FutureTech",
-      location: "Berlin, Germany",
-      period: "January 2020 - August 2021",
-    },
+      company: "Freelanced",
+      location: "Johannesburg",
+      period: "January 2019 - March 2020",
+    }
   ];
 
   return (

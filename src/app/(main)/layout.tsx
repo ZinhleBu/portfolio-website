@@ -13,7 +13,7 @@ export default async function Layout({
   const session = await validateRequest();
 
   if (!session.user) {
-    return null
+    if (!session.user) redirect("/login");
   };
 
   return (
