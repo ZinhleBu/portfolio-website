@@ -13,7 +13,6 @@ import { JobExperienceList } from "../JobExperienceList";
 
 export default function AboutPage() {
   return (
-    <main className="flex w-full min-w-0 gap-5">
       <div className="w-full min-w-0 space-y-5">
         {" "}
         <div className="flex flex-col m-auto items-center justify-center gap-5 pt-9">
@@ -120,6 +119,5 @@ export default function AboutPage() {
         <JobExperienceList />
 
       </div>
-    </main>
   );
 }

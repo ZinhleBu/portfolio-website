@@ -60,11 +60,11 @@ export default async function NavItems({ className }: NavItemsProps) {
       <Button
         variant="ghost"
         className="flex items-center justify-start gap-3"
-        title="Resources"
+        title="Contact"
         asChild
       >
-        <Link href="/resources">
-          <span className="hidden md:inline">Resources</span>
+        <Link href="/contact">
+          <span className="hidden md:inline">Contact</span>
         </Link>
       </Button>
     </div>

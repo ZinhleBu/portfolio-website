@@ -33,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/components/Animations.js", "src/components/Hamburger.tsx", "src/components/Header.ts"  ],
   "exclude": [
     "node_modules"
   ]

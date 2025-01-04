@@ -43,6 +43,7 @@ export default function WorkBanner() {
           </Button>
         </div>
       </div>
+
       <Image
         src={heroBanner}
         alt="mondia"
@@ -50,6 +51,7 @@ export default function WorkBanner() {
         height={700}
         className="aspect-auto h-fit flex-none rounded-xl bg-secondary object-cover"
       />
+      
       <div className="space-y-4 mt-8">
         {jobExperiences.map((job, index) => (
           <div

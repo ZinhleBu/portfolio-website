@@ -3,18 +3,19 @@
 import { Button } from "@/components/ui/button";
 import H1 from "@/components/ui/h1";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowRightIcon } from "lucide-react";
+import { IconBadge } from "@/components/IconBadge";
+
+import { ArrowRightIcon, LayoutDashboard } from "lucide-react";
 import Image from "next/image";
-import heroImageLeft from "@/assets/1.jpg";
-import heroImageRight from "@/assets/2.jpg";
+import heroImageLeft from "@/assets/zee.jpg";
+import heroImageRight from "@/assets/ui.jpg";
 import { designServices } from "../../lib/data";
 import WorkBanner from "./WorkBanner";
 import Link from "next/link";
 import { JobExperienceList } from "./JobExperienceList";
 export default function Home() {
   return (
-    <main className="flex w-full min-w-0 gap-5">
-      <div className="w-full min-w-0 space-y-5">
+      <div className="w-full min-w-0 gap-5 space-y-5">
         <div className="flex flex-col m-auto items-center justify-center gap-5">
           <H1 className=" text-5xl md:text-6xl  font-medium text-center max-w-[64rem]">
             <span className="text-gray-400">I&apos;m Zinhle,</span>{" "}
@@ -42,19 +43,19 @@ export default function Home() {
           </div>
         </div>
         <div className="flex flex-col md:flex-row mt-4 pt-11 items-center justify-center gap-5">
-          <Image
+          {/* <Image
             src={heroImageLeft}
             alt="zinhle"
             width={400}
             height={700}
             className="aspect-auto h-fit flex-none rounded-xl bg-secondary object-cover"
-          />
+          /> */}
           <Image
             src={heroImageRight}
             alt="zinhle"
             width={900}
             height={700}
-            className="aspect-auto h-fit flex-none rounded-xl bg-secondary object-cover"
+            className="aspect-auto h-[550px] w-full flex-none rounded-xl bg-secondary object-cover"
           />
         </div>
         <div className="flex flex-col m-auto items-center justify-center gap-5 pt-9">
@@ -77,7 +78,10 @@ export default function Home() {
             >
               <div className="flex flex-col items-start">
                 <div className="mr-4">
-                  <span>{service.icon}</span>
+                  <span>
+                  <IconBadge icon={service.icon}  />
+
+                  </span>
                 </div>
                 <h3 className="text-lg text-left font-semibold">
                   {service.title}
@@ -147,6 +151,5 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </main>
   );
 }

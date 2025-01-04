@@ -12,8 +12,7 @@ import { ArrowRightIcon } from "lucide-react";
 
 export default function ServicesPage() {
   return (
-    <main className="flex w-full min-w-0 gap-5">
-      <div className="w-full min-w-0 space-y-5">
+      <div className="w-full min-w-0 gap-5 space-y-5">
         {" "}
         <div className="flex flex-col m-auto items-center justify-center gap-5 pt-9">
         <H1 className=" text-5xl md:text-6xl  font-medium text-center max-w-[64rem]">
@@ -120,6 +119,5 @@ export default function ServicesPage() {
           </div>
         </div>
       </div>
-    </main>
   );
 }

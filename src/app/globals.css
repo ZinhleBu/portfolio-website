@@ -1,7 +1,8 @@
+/** @format */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 @layer base {
   :root {
@@ -30,6 +31,23 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    --secondary-glow: conic-gradient(
+      from 10deg at 50% 50%,
+      #eb7494 0deg,
+      #ae77b2 55deg,
+      #97b5da 120deg,
+      #0099ca 160deg,
+      transparent 360deg
+    );
+
+    --third-glow: conic-gradient(
+      from 90deg at 50% 50%,
+      #ff8b7e 0deg,
+      #e24e6b 160deg,
+      #7ed2da 120deg,
+      #8bdce0 55deg,
+      transparent 360deg
+    );
   }
 
   .dark {
@@ -59,13 +77,294 @@
     --chart-5: 340 75% 55%;
   }
 }
-
-
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -10%);
+  }
+  20% {
+    transform: translate(-15%, 5%);
+  }
+  30% {
+    transform: translate(7%, -25%);
+  }
+  40% {
+    transform: translate(-5%, 25%);
+  }
+  50% {
+    transform: translate(-15%, 10%);
+  }
+  60% {
+    transform: translate(15%, 0%);
+  }
+  70% {
+    transform: translate(0%, 15%);
+  }
+  80% {
+    transform: translate(3%, 35%);
+  }
+  90% {
+    transform: translate(-10%, 10%);
+  }
+}
 @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+    &:before {
+      animation: grain 8s steps(10) infinite;
+      background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/paper-pattern.png");
+      content: "";
+      height: 300%;
+      left: -50%;
+      opacity: 0.3;
+      position: fixed;
+      top: -100%;
+      width: 300%;
+      z-index: -1;
+    }
+  }
+  /* body::before,
+  body::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    opacity: 0.8;
+  }
+  body::before {
+    background: var(--third-glow);
+    border-radius: 50%;
+    width: 50vw;
+    height: 50vw;
+    margin-left: -200px;
+    filter: blur(90px);
+    top: calc(50vh - 50vw / 2);
+    left: calc(50vw);
+    animation: animateBefore 7s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
+  }
+
+  body::after {
+    background: var(--secondary-glow);
+    border-radius: 50%;
+    width: 500px;
+    height: 700px;
+    filter: blur(90px);
+    top: calc(50vh - 50vw / 2);
+    left: calc(50vw - 50vw / 2);
+    animation: animateAfter 7s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
+  } */
+}
+@keyframes animateBefore {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(200px) scale(0.8);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes animateAfter {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-250px) scale(1.2);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.container {
+  width: 100%;
+  min-width: 1280px;
+  margin: 0 auto;
+  .wrapper {
+    padding: 0 48px;
+    .home {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      p {
+        font-size: 0.75rem;
+        letter-spacing: 0.3rem;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      h5 {
+        margin-top: 260px;
+        font-size: 24px;
+        font-weight: 600;
+        padding-right: 360px;
+      }
+    }
+  }
+}
+
+header {
+  height: 100px;
+  .inner-header {
+    position: relative;
+    z-index: 10;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo a {
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      color: #191919;
+    }
+    .menu {
+      button {
+        border: none;
+        background: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 0.8rem;
+        mix-blend-mode: difference;
+      }
+    }
+  }
+  .hamburger-menu {
+    display: none;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    .menu-secondary-background-color {
+      background: #191919;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+    }
+    .menu-layer {
+      position: relative;
+      background:  rgb(37 99 235);
+      height: 100%;
+      overflow: hidden;
+      .menu-city-background {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        animation-name: backgroundEffect;
+        animation-duration: 30s;
+        animation-iteration-count: infinite;
+      }
+      .wrapper {
+        position: relative;
+        .menu-links {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: relative;
+          top: 200px;
+          nav {
+            display: block;
+            ul {
+              margin: 0;
+              padding: 0;
+              li {
+                list-style: none;
+                font-size: 6rem;
+                font-weight: 700;
+                cursor: pointer;
+                height: 135px;
+                overflow: hidden;
+                position: relative;
+                width: 700px;
+                a {
+                  position: absolute;
+                  color: #fff;
+                  text-decoration: none;
+                  &:hover {
+                    color: #191919;
+                  }
+                }
+              }
+            }
+          }
+          .info {
+            color: #fff;
+            width: 300px;
+            h3 {
+              font-size: 1.2rem;
+              margin: 8px auto;
+            }
+            p {
+              margin: 0 auto;
+              font-size: 0.8rem;
+            }
+          }
+        }
+        .locations {
+          position: absolute;
+          bottom: -80px;
+          color: #fff;
+          margin-top: 16px;
+          font-size: 0.8rem;
+          font-weight: 600;
+          span {
+            cursor: pointer;
+            &:first-child {
+              margin-left: 64px;
+            }
+            font-weight: 400;
+            margin: 0 32px;
+            transition: 0.3s ease-in-out;
+            &:hover {
+              color: #fff;
+              background: #191919;
+              padding: 8px 24px;
+              border-radius: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes backgroundEffect {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 40% 10%;
+  }
+  50% {
+    background-position: 0 10%;
+  }
+  75% {
+    background-position: 10% 40%;
+  }
+  100% {
+    background-position: 0% 0%;
   }
 }
